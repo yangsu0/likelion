@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">    
+    {% comment %} <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script> {% endcomment %}
+    {% comment %} <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  {% endcomment %}
+    {% comment %} <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> {% endcomment %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Hind:400,500,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gaegu:400,700&amp;subset=korean" rel="stylesheet">
+    <title>WordCounter</title>
+</head>
+<style>
+body{
+    background-color : #FFB39E
+}
+input[type=submit] {
+  background-color: #54767F;
+  border: 3px solid #555;
+  font-size: 30px;
+  color: white;
+  background-repeat: no-repeat;
+  margin-left: 450px;
+  cursor: pointer;
+}
+</style>
+<body>
+    <div style="margin-top:15px; margin-left:50px; font-family:Hind; font-size:150%">
+    <h1><i class="fas fa-hand-holding-heart"></i> Welcome to WordCount</h1>
+    </div> 
+
+   <a style="margin-left:500px" href="{% url 'firstpractice:about' %}">ABOUT</a>
+   <div style="margin-top:10px">
+    <form action="{% url 'firstpractice:count'%}">
+    <div style="float:left;">
+    <div>
+    <textarea style="margin-left:55px;font-family:Hind; font-size: 25px; color: #54767F" cols=40 rows=8 name="fulltext">text를 입력하세용</textarea></div>
+    <div><input type="submit", value="Count!"></div></div></form></div>
+
+    <a style="margin-left:700px;" href="{% url 'firstpractice:com_list' %}">게시판가기</a>
+    <form action="{% url 'firstpractice:text'%}" method="POST">
+    {% csrf_token %}
+    <div style="float:right ; margin-right:100px; font-family: Gaegu; font-size:30px">
+    <h4>사이트 이용 후 한 줄 평을 남겨주세용!</h4></div>
+    <div><textarea cols=60, rows=5 style="margin-left:250px; border-style:dashed;border-width:3px;font-family:Gaegu;font-size:20px; font-color:#D9D1CE">
+    예) 너무 유익해용! 자주 이용할 것 같아요ㅎㅎ</textarea>
+    <input style="margin-left:700px"type="submit", value="Submit"></div>  
+    </form>
+</body>
+</html>

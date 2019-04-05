@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <title>Comment</title>
+</head>
+<style>
+body{
+    background-color: #F49F6D
+}
+</style>
+<body>
+    <div style="font-family:Indie Flower; font-size:30px;margin-left:30px"><h1><u><b>Comments Board</b></u></h1></div>
+    <div>
+    {% for text in com_text%}
+    <li>{{text}}</li>
+    {% endfor %}   
+    </div>
+</body>
+</html>
