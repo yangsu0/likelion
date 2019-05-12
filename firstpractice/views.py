@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from .models import Comment
+from django.utils import timezone
+from django.shortcuts import redirect
 
 
 # Create your views here.
@@ -25,34 +27,13 @@ def about(request):
     return render(request,'firstpractice/about.html')
 
 def com_list(request):
-    com_text=Comment.object.all().order_by('-pub_date')
-    context={'com_text':com_text}
-    return render(request, 'firstpractice/com_list.html',context)
+    com_text=Comment.objects
+    return render(request, 'firstpractice/com_list.html',{'com_text':com_text})
 
-"""
+
 def text(request):
-    com_text=Comment.objects.all()
-    try:
-        context=com_text.Comment_set.get(pk=request.POST[''])
-    except (KeyError, Comment.DoesNotExist):
-        return render(request,'firstpractice/home.html',{'com_text':com_text})
-    else:
-        context.save()
-        return HttpResponseRedirect(reverse('app_name:url'))
-        """
-"""
-def text(request):
-    comment = Comment.objects.all()
-    try:
-        context = comment.get(request.POST[''])
-"""
-def text(request):
-    if request.method=='POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            form.save()
-        return redirect('/feedback/list')
-    else:
-        form = CommentForm()
- 
-    return render(request, 'submit.html', {'form': form})
+    comment = Comment()
+    comment.content = request.POST['body']
+    comment.pub_date = timezone.datetime.now()
+    comment.save()
+    return redirect('/')

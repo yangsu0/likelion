@@ -46,11 +46,11 @@ input[type=submit] {
     <div><input type="submit", value="Count!"></div></div></form></div>
 
     <a style="margin-left:700px;" href="{% url 'firstpractice:com_list' %}">게시판가기</a>
-    <form action="{% url 'firstpractice:text'%}" method="POST">
+    <form action="{% url 'firstpractice:text' %}" method="POST">
     {% csrf_token %}
     <div style="float:right ; margin-right:100px; font-family: Gaegu; font-size:30px">
     <h4>사이트 이용 후 한 줄 평을 남겨주세용!</h4></div>
-    <div><textarea cols=60, rows=5 style="margin-left:250px; border-style:dashed;border-width:3px;font-family:Gaegu;font-size:20px; font-color:#D9D1CE">
+    <div><textarea name="body" cols=60, rows=5 style="margin-left:250px; border-style:dashed;border-width:3px;font-family:Gaegu;font-size:20px; font-color:#D9D1CE">
     예) 너무 유익해용! 자주 이용할 것 같아요ㅎㅎ</textarea>
     <input style="margin-left:700px"type="submit", value="Submit"></div>  
     </form>

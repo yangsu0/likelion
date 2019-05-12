@@ -19,10 +19,9 @@ from . import views
 
 app_name="firstpractice"
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('',views.home, name = 'home'),
     path('count/',views.count, name = 'count'),
     path('about/',views.about, name = 'about'),
     path('com_list/',views.com_list, name='com_list'),
-    path('submit/', views.text, name='text'),
+    path('text/', views.text, name='text'),
 ]
